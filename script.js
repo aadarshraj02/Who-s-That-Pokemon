@@ -43,6 +43,13 @@ async function loadQuestionOption() {
   shuffleArray(options);
   resultElement.textContent = "Who's That Pokemon?";
   pokemonImage.src = pokemon.sprites.other.dream_world.front_default;
+  optionsContainer.innerHTML = "";
+  options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.textContent = option;
+    button.onclick = (event) => checkAnswer();
+    optionsContainer.appendChild(button);
+  });
 }
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
