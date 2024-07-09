@@ -13,3 +13,13 @@
   --button-wrong: #e13e3e;
   --button-hover: #aaa;
 }
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #3b4cca 0%, #ff3535 100%);
+  color: var(--white-color);
+}
