@@ -6,6 +6,8 @@ const totalCount = document.querySelector("#total-count");
 const mainContainer = document.querySelector(".container");
 const loadingContainer = document.querySelector("#loading-container");
 
+let usedPokemonId = [];
+
 async function fetchPokemonById(id) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   const data = await response.json();
@@ -14,4 +16,13 @@ async function fetchPokemonById(id) {
 
 function getRandomId() {
   return Math.floor(Math.random() * 151) + 1;
+}
+
+async function loadQuestionOption() {
+  let pokemonId = getRandomId();
+  while (usedPokemonId.includes(pokemonId)) {
+    pokemonId = getRandomId();
+  }
+  usedPokemonId.push(pokemonId);
+  const pokemon = await fetchPokemonById(pokemonId);
 }
