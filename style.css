@@ -28,3 +28,7 @@ body {
   font-weight: 400;
   height: 100px;
 }
+#pokemon-image {
+  height: 200px;
+  max-width: 100%;
+}
