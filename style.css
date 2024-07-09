@@ -53,3 +53,11 @@ button:hover {
   background-color: var(--button-hover);
   color: var(--white-color);
 }
+button.correct {
+  background-color: var(--button-correct);
+  color: var(--white-color);
+}
+button.wrong {
+  background-color: var(--button-wrong);
+  color: var(--white-color);
+}
