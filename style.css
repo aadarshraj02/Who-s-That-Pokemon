@@ -36,3 +36,15 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+button {
+  height: 3rem;
+  margin: 10px;
+  width: calc(50% - 20px);
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: capitalize;
+  cursor: pointer;
+  background-color: var(--white-color);
+  border: none;
+  border-radius: 5px;
+}
