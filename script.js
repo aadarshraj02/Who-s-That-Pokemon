@@ -6,8 +6,12 @@ const totalCount = document.querySelector("#total-count");
 const mainContainer = document.querySelector(".container");
 const loadingContainer = document.querySelector("#loading-container");
 
-async function fetchPokemonById() {
-  const response = await fetch("https://pokeapi.co/api/v2/pokemon/1");
+async function fetchPokemonById(id) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   const data = await response.json();
   return data;
+}
+
+function getRandomId() {
+  return Math.floor(Math.random() * 151) + 1;
 }
