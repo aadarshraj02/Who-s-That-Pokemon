@@ -3,7 +3,7 @@ const pokemonImage = document.querySelector("#pokemon-image");
 const optionsContainer = document.querySelector("#options");
 const pointsElement = document.querySelector("#points-value");
 const totalCount = document.querySelector("#total-count");
-const mainContainer = document.querySelector(".container");
+const mainContainer = document.getElementsByClassName("container");
 const loadingContainer = document.querySelector("#loading-container");
 
 let usedPokemonId = [];
@@ -101,6 +101,22 @@ function displayResult(result) {
 }
 function hideLoadingWindow() {
   loadingContainer.classList.add("hide");
+}
+
+function showLoadingWindow() {
+  mainContainer[0].classList.remove("show");
+  loadingContainer.classList.remove("hide");
+  loadingContainer.classList.add("show");
+}
+
+function showPuzzleWindow() {
+  loadingContainer.classList.remove("show");
+  mainContainer[0].classList.remove("hide");
+  mainContainer[0].classList.add("show");
+}
+
+function hidePuzzleWindow() {
+  mainContainer[0].classList.add("hide");
 }
 
 loadQuestionOption();

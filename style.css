@@ -69,7 +69,7 @@ button.wrong {
 }
 #loading-container {
   height: 500px;
-  display: none;
+  /* display: none; */
 }
 #loading-img {
   height: 200px;
