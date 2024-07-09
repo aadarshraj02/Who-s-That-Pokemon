@@ -25,4 +25,19 @@ async function loadQuestionOption() {
   }
   usedPokemonId.push(pokemonId);
   const pokemon = await fetchPokemonById(pokemonId);
+
+  const options = [pokemon.name];
+  const optionsIds = [pokemon.id];
+
+  while (options.length < 4) {
+    let randomPokemonId = getRandomId();
+    while (optionsIds.includes(randomPokemonId)) {
+      randomPokemonId = getRandomId();
+    }
+    optionsIds.push(randomPokemonId);
+
+    const randomPokemon = await fetchPokemonById(randomPokemonId);
+    const randomOption = randomPokemon.name;
+    options.push(randomOption);
+  }
 }
