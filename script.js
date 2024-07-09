@@ -40,4 +40,10 @@ async function loadQuestionOption() {
     const randomOption = randomPokemon.name;
     options.push(randomOption);
   }
+  shuffleArray(options);
 }
+function shuffleArray(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+loadQuestionOption();
