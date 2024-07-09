@@ -70,6 +70,10 @@ function checkAnswer(isCorrect, event) {
     displayResult("Correct Answer!");
     points++;
     pointsElement.textContent = points;
+    event.target.classList.add("correct");
+  } else {
+    displayResult("Incorrect Answer...");
+    event.target.classList.add("wrong");
   }
 }
 
