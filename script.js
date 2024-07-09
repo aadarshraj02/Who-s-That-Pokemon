@@ -7,6 +7,7 @@ const mainContainer = document.querySelector(".container");
 const loadingContainer = document.querySelector("#loading-container");
 
 let usedPokemonId = [];
+let count = 0;
 
 async function fetchPokemonById(id) {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -44,15 +45,25 @@ async function loadQuestionOption() {
   resultElement.textContent = "Who's That Pokemon?";
   pokemonImage.src = pokemon.sprites.other.dream_world.front_default;
   optionsContainer.innerHTML = "";
-  options.forEach((option, index) => {
+  options.forEach((option) => {
     const button = document.createElement("button");
     button.textContent = option;
-    button.onclick = (event) => checkAnswer();
+    button.onclick = (event) => checkAnswer(option === pokemon.name, event);
     optionsContainer.appendChild(button);
   });
 }
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
+}
+
+function checkAnswer(isCorrect, event) {
+  const selectedButton = document.querySelector(".selected");
+  if (selectedButton) {
+    return;
+  }
+  event.target.classList.add("selected");
+  count++;
+  totalCount.textContent = count;
 }
 
 loadQuestionOption();
