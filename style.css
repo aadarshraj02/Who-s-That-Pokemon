@@ -23,6 +23,12 @@ body {
   background: linear-gradient(135deg, #3b4cca 0%, #ff3535 100%);
   color: var(--white-color);
 }
+.container {
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
 .container #result {
   font-size: 1.5rem;
   font-weight: 400;
