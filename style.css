@@ -61,3 +61,12 @@ button.wrong {
   background-color: var(--button-wrong);
   color: var(--white-color);
 }
+#loading-container {
+  height: 500px;
+}
+#loading-img {
+  height: 200px;
+  height: 200px;
+  position: relative;
+  top: 20%;
+}
