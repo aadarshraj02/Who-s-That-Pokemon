@@ -9,8 +9,10 @@ const loadingContainer = document.querySelector("#loading-container");
 let usedPokemonId = [];
 let count = 0;
 let points = 0;
+let showLoading = false;
 
 async function fetchPokemonById(id) {
+  showLoading = true;
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   const data = await response.json();
   return data;
@@ -21,6 +23,10 @@ function getRandomId() {
 }
 
 async function loadQuestionOption() {
+  if ((showLoading = true)) {
+    showLoadingWindow();
+    hidePuzzleWindow();
+  }
   let pokemonId = getRandomId();
   while (usedPokemonId.includes(pokemonId)) {
     pokemonId = getRandomId();
@@ -41,6 +47,10 @@ async function loadQuestionOption() {
     const randomPokemon = await fetchPokemonById(randomPokemonId);
     const randomOption = randomPokemon.name;
     options.push(randomOption);
+
+    if (options.length === 4) {
+      showLoading = false;
+    }
   }
   shuffleArray(options);
   resultElement.textContent = "Who's That Pokemon?";
@@ -52,6 +62,11 @@ async function loadQuestionOption() {
     button.onclick = (event) => checkAnswer(option === pokemon.name, event);
     optionsContainer.appendChild(button);
   });
+
+  if (!showLoading) {
+    hideLoadingWindow();
+    showPuzzleWindow();
+  }
 }
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -75,10 +90,17 @@ function checkAnswer(isCorrect, event) {
     displayResult("Incorrect Answer...");
     event.target.classList.add("wrong");
   }
+  setTimeout(() => {
+    showLoading = true;
+    loadQuestionOption();
+  }, 1000);
 }
 
 function displayResult(result) {
   resultElement.textContent = result;
+}
+function hideLoadingWindow() {
+  loadingContainer.classList.add("hide");
 }
 
 loadQuestionOption();
