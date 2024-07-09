@@ -6,3 +6,10 @@
   box-sizing: border-box;
   font-family: "Rammetto", sans-serif;
 }
+
+:root {
+  --white-color: #fff;
+  --button-correct: #5aae76;
+  --button-wrong: #e13e3e;
+  --button-hover: #aaa;
+}
